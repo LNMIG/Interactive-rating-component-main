@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="./css/index.css" rel="stylesheet">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+
+</head>
+<body>
+
+  <!-- Rating state start -->
+  <div class="rating-active" id="rating">
+    <div >
+      <div class="star">
+        <img src="./images/icon-star.svg" />
+      </div>
+      <h1>How did we do?</h1>
+      <p>
+        Please let us know how we did with your support request. All feedback is appreciated 
+        to help us improve our offering!
+      </p>
+    </div>
+
+    <form class="form">
+      <div class="buttons">
+        <button name="button" class="button" type="button" value="1" id="btn1" onclick="changeColor(event)">1</button>
+        <button name="button" class="button" type="button" value="2" id="btn2" onclick="changeColor(event)">2</button>
+        <button name="button" class="button" type="button" value="3" id="btn3" onclick="changeColor(event)">3</button>
+        <button name="button" class="button" type="button" value="4" id="btn4" onclick="changeColor(event)">4</button>
+        <button name="button" class="button" type="button" value="5" id="btn5" onclick="changeColor(event)">5</button>
+      </div>
+        <button class="submit" type="button" onclick="sayThanks()">SUBMIT</input>
+    </form>
+  </div>
+  <!-- Rating state end -->
+
+  <!-- Thank you state start -->
+
+  <div class="thanks-none" id="thanks">
+    <div class="calc">
+      <img src="./images/illustration-thank-you.svg" />
+    </div>
+    <div class="selected" id="selected">
+      <h5>You selected {Add-rating-here} out of 5</h5>
+    </div>
+    <h1>Thank you!</h1>
+    <p>
+      We appreciate you taking the time to give a rating. If you ever need more support, 
+      don’t hesitate to get in touch!
+    </p>
+  </div>
+
+  <!-- Thank you state end -->
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Luis N. Migliore</a>.
+  </div>
+</body>
+<script>
+
+      function changeColor(event) {
+        let todos = ['1','2','3','4','5'];
+        var numEvent = event.target.value;
+        document.getElementById(`btn${event.target.value}`).classList.toggle('button-active');
+        todos.filter(y => y !== event.target.value).forEach((each)=> {
+          //document.getElementById(`btn${each}`).classList.add('button');
+          document.getElementById(`btn${each}`).classList.remove('button-active');
+        })
+      }
+      function sayThanks() {
+        document.getElementById('rating').classList.add('rating-none');
+        document.getElementById('rating').classList.remove('rating-active');
+        document.getElementById('thanks').classList.add('thanks-active');
+        document.getElementById('thanks').classList.remove('thanks-none');
+        let stars = document.getElementsByClassName('button-active')[0].value 
+        let a = document.getElementById('selected')
+        a.innerText = `You selected ${stars} out of 5`;
+        
+        
+      }
+
+</script>
+</html>
