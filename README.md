@@ -21,3 +21,7 @@ Any user is able to:
 - See hover states for all interactive elements on the page
 - Select and submit a number rating
 - See the "Thank you" card state after submitting a rating
+
+## What I learned
+Well, I used all the knowledge I had about HTML, CSS and JS. The most important side of this challenge is that it forced me to check back and reinforce some knowledge I already have.
+I think this is a good way to keep our minds and knowledge working together and updated.
